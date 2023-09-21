@@ -1,1 +1,4 @@
-export class Money {}
+export class Money {
+  constructor(protected amount: number) {
+  }
+}
