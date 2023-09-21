@@ -6,6 +6,7 @@ export class Dollar {
   }
 
   equals(object: Object): boolean {
-    return true;
+    const dollar = object as Dollar;
+    return this.amount === dollar.amount;
   }
 }
