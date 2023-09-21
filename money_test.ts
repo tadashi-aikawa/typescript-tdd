@@ -1,4 +1,4 @@
-import { assertEquals } from "assert";
+import { assert, assertEquals } from "assert";
 import { Dollar } from "./Dollar.ts";
 
 Deno.test("Moneyのテスト", async (t) => {
@@ -8,5 +8,9 @@ Deno.test("Moneyのテスト", async (t) => {
     assertEquals(product.amount, 10);
     product = five.times(3);
     assertEquals(product.amount, 15);
+  });
+
+  await t.step("equalityのテスト", () => {
+    assert(new Dollar(5).equals(new Dollar(5)));
   });
 });
