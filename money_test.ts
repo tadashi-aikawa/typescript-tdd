@@ -4,12 +4,8 @@ import { Dollar } from "./Dollar.ts";
 Deno.test("Moneyのテスト", async (t) => {
   await t.step("multiplicationのテスト", () => {
     const five = new Dollar(5);
-
-    let product = five.times(2);
-    assertEquals(product.amount, 10);
-
-    product = five.times(3);
-    assertEquals(product.amount, 15);
+    assertEquals(five.times(2), new Dollar(10));
+    assertEquals(five.times(3), new Dollar(15));
   });
 
   await t.step("equalityのテスト", () => {
