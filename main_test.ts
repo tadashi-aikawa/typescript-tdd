@@ -1,6 +1,9 @@
 import { assertEquals } from "assert";
-import { sum } from "./main.ts";
 
-Deno.test("sumのテスト", () => {
-  assertEquals(sum(2, 3), 50);
+Deno.test("Moneyのテスト", async (t) => {
+  await t.step("multiplicationのテスト", () => {
+    const five = new Dollar(5);
+    five.times(2);
+    assertEquals(five.amout, 10);
+  });
 });
