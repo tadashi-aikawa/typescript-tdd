@@ -1,10 +1,12 @@
 import { Dollar } from "./Dollar.ts";
 
-export class Money {
+export abstract class Money {
   constructor(protected amount: number) {
   }
 
-  static dollar(amount: number): Dollar {
+  abstract times(multiplier: number): Money;
+
+  static dollar(amount: number): Money {
     return new Dollar(amount);
   }
 
