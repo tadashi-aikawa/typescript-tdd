@@ -1,10 +1,11 @@
 import { assert, assertEquals, assertFalse } from "assert";
 import { Dollar } from "./Dollar.ts";
 import { Franc } from "./Franc.ts";
+import { Money } from "./Money.ts";
 
 Deno.test("Moneyのテスト", async (t) => {
   await t.step("multiplicationのテスト", () => {
-    const five = new Dollar(5);
+    const five: Money = Money.dollar(5);
     assertEquals(five.times(2), new Dollar(10));
     assertEquals(five.times(3), new Dollar(15));
   });

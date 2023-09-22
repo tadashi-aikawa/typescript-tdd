@@ -1,5 +1,11 @@
+import { Dollar } from "./Dollar.ts";
+
 export class Money {
   constructor(protected amount: number) {
+  }
+
+  static dollar(amount: number): Dollar {
+    return new Dollar(amount);
   }
 
   equals(object: object): boolean {
