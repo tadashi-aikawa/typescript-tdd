@@ -7,5 +7,5 @@ export function dollar(amount: number): Money {
 }
 
 export function franc(amount: number): Money {
-  return new Franc(amount, "");
+  return new Franc(amount, "CHF");
 }
