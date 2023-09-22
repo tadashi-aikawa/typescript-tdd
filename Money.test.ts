@@ -22,4 +22,9 @@ Deno.test("Moneyのテスト", async (t) => {
     assertFalse(factory.franc(5).equals(factory.franc(6)));
     assertFalse(factory.franc(5).equals(factory.dollar(5)));
   });
+
+  await t.step("currencyのテスト", () => {
+    assertEquals("USD", factory.dollar(1).currency());
+    assertEquals("CHF", factory.franc(1).currency());
+  });
 });
