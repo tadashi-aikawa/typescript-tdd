@@ -1,10 +1,10 @@
 import { Money } from "./Money.ts";
 
 export class Franc extends Money {
-  constructor(amount: number) {
+  constructor(amount: number, currency: string) {
     super(amount, "CHF");
   }
   times(multiplier: number): Money {
-    return new Franc(this.amount * multiplier);
+    return new Franc(this.amount * multiplier, "");
   }
 }
