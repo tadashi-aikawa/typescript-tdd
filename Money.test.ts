@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { Money } from "./Money.ts";
 import * as factory from "./money-factory.ts";
+import { Franc } from "./Franc.ts";
 
 describe("Moneyのテスト", () => {
   test("multiplicationのテスト", () => {
@@ -27,5 +28,9 @@ describe("Moneyのテスト", () => {
   test("currencyのテスト", () => {
     expect("USD").toBe(factory.dollar(1).currency);
     expect("CHF").toBe(factory.franc(1).currency);
+  });
+
+  test("異なるクラスの等価性テスト", () => {
+    expect(new Money(10, "CHF").equals(new Franc(10, "CHF"))).toBeTrue();
   });
 });
