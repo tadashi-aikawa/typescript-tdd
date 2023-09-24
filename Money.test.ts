@@ -19,18 +19,11 @@ describe("Moneyのテスト", () => {
   test("equalityのテスト", () => {
     expect(factory.dollar(5)).toEqual(factory.dollar(5));
     expect(factory.dollar(5)).not.toEqual(factory.dollar(6));
-
-    expect(factory.franc(5)).toEqual(factory.franc(5));
-    expect(factory.franc(5)).not.toEqual(factory.franc(6));
     expect(factory.franc(5)).not.toEqual(factory.dollar(5));
   });
 
   test("currencyのテスト", () => {
     expect("USD").toBe(factory.dollar(1).currency);
     expect("CHF").toBe(factory.franc(1).currency);
-  });
-
-  test("異なるクラスの等価性テスト", () => {
-    expect(new Money(10, "CHF").equals(new Franc(10, "CHF"))).toBeTrue();
   });
 });
