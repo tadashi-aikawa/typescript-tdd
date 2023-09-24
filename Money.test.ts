@@ -10,12 +10,6 @@ describe("Moneyのテスト", () => {
     expect(five.times(3)).toEqual(factory.dollar(15));
   });
 
-  test("フランのmultiplicationのテスト", () => {
-    const five = factory.franc(5);
-    expect(five.times(2)).toEqual(factory.franc(10));
-    expect(five.times(3)).toEqual(factory.franc(15));
-  });
-
   test("equalityのテスト", () => {
     expect(factory.dollar(5)).toEqual(factory.dollar(5));
     expect(factory.dollar(5)).not.toEqual(factory.dollar(6));
