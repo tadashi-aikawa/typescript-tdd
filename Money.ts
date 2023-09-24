@@ -1,8 +1,8 @@
 export class Money {
   constructor(protected amount: number, protected _currency: string) {}
 
-  times(multiplier: number): Money | null {
-    return null;
+  times(multiplier: number): Money {
+    return new Money(this.amount * multiplier, this.currency);
   }
 
   get currency(): string {
