@@ -1,30 +1,31 @@
-import { assert, assertEquals, assertFalse } from "assert";
+import { describe, expect, test } from "bun:test";
 import { Money } from "./Money.ts";
 import * as factory from "./money-factory.ts";
 
-Deno.test("Moneyのテスト", async (t) => {
-  await t.step("multiplicationのテスト", () => {
+describe("Moneyのテスト", () => {
+  test("multiplicationのテスト", () => {
     const five: Money = factory.dollar(5);
-    assertEquals(five.times(2), factory.dollar(10));
-    assertEquals(five.times(3), factory.dollar(15));
+    expect(five.times(2)).toEqual(factory.dollar(10));
+    expect(five.times(3)).toEqual(factory.dollar(15));
   });
 
-  await t.step("フランのmultiplicationのテスト", () => {
+  test("フランのmultiplicationのテスト", () => {
     const five = factory.franc(5);
-    assertEquals(five.times(2), factory.franc(10));
-    assertEquals(five.times(3), factory.franc(15));
+    expect(five.times(2)).toEqual(factory.franc(10));
+    expect(five.times(3)).toEqual(factory.franc(15));
   });
 
-  await t.step("equalityのテスト", () => {
-    assert(factory.dollar(5).equals(factory.dollar(5)));
-    assertFalse(factory.dollar(5).equals(factory.dollar(6)));
-    assert(factory.franc(5).equals(factory.franc(5)));
-    assertFalse(factory.franc(5).equals(factory.franc(6)));
-    assertFalse(factory.franc(5).equals(factory.dollar(5)));
+  test("equalityのテスト", () => {
+    expect(factory.dollar(5)).toEqual(factory.dollar(5));
+    expect(factory.dollar(5)).not.toEqual(factory.dollar(6));
+
+    expect(factory.franc(5)).toEqual(factory.franc(5));
+    expect(factory.franc(5)).not.toEqual(factory.franc(6));
+    expect(factory.franc(5)).not.toEqual(factory.dollar(5));
   });
 
-  await t.step("currencyのテスト", () => {
-    assertEquals("USD", factory.dollar(1).currency);
-    assertEquals("CHF", factory.franc(1).currency);
+  test("currencyのテスト", () => {
+    expect("USD").toBe(factory.dollar(1).currency);
+    expect("CHF").toBe(factory.franc(1).currency);
   });
 });
