@@ -1,7 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { Money } from "./Money.ts";
 import * as factory from "./money-factory.ts";
-import { Franc } from "./Franc.ts";
 
 describe("Moneyのテスト", () => {
   test("multiplicationのテスト", () => {
