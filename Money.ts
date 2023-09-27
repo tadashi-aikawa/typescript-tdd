@@ -5,7 +5,8 @@ export class Money implements Expression {
   constructor(public amount: number, public _currency: string) {}
 
   reduce(to: string): Money {
-    return this;
+    const rate = this.currency === "CHF" && to === "USD" ? 2 : 1;
+    return new Money(this.amount / rate, to);
   }
 
   times(multiplier: number): Money {
