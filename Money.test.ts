@@ -4,6 +4,7 @@ import * as factory from "./money-factory.ts";
 import { Expression } from "./Expression.ts";
 import { Bank } from "./Bank.ts";
 import { Sum } from "./Sum.ts";
+import exp from "constants";
 
 describe("Moneyのテスト", () => {
   test("simpleAdditionのテスト", () => {
@@ -28,6 +29,12 @@ describe("Moneyのテスト", () => {
     const bank = new Bank();
     const result = bank.reduce(sum, "USD");
     expect(result).toEqual(factory.dollar(7));
+  });
+
+  test("reduce.Moneyのテスト", () => {
+    const bank = new Bank();
+    const result = bank.reduce(factory.dollar(1), "USD");
+    expect(result).toEqual(factory.dollar(1));
   });
 
   test("multiplicationのテスト", () => {
