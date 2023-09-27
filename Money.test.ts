@@ -4,7 +4,6 @@ import * as factory from "./money-factory.ts";
 import { Expression } from "./Expression.ts";
 import { Bank } from "./Bank.ts";
 import { Sum } from "./Sum.ts";
-import exp from "constants";
 
 describe("Moneyのテスト", () => {
   test("simpleAdditionのテスト", () => {
