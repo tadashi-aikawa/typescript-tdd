@@ -37,6 +37,13 @@ describe("Moneyのテスト", () => {
     expect(result).toEqual(factory.dollar(1));
   });
 
+  test("異なるcurrencyでのreduce.Moneyのテスト", () => {
+    const bank = new Bank();
+    bank.addRate("CHF", "USD", 2);
+    const result = bank.reduce(factory.franc(2), "USD");
+    expect(result).toEqual(factory.dollar(1));
+  });
+
   test("multiplicationのテスト", () => {
     const five: Money = factory.dollar(5);
     expect(five.times(2)).toEqual(factory.dollar(10));
