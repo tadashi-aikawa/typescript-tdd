@@ -23,6 +23,13 @@ describe("Moneyのテスト", () => {
     expect(sum.addend).toEqual(five);
   });
 
+  test("reduceがSumを返すテスト", () => {
+    const sum = new Sum(factory.dollar(3), factory.dollar(4));
+    const bank = new Bank();
+    const result = bank.reduce(sum, "USD");
+    expect(result).toEqual(factory.dollar(7));
+  });
+
   test("multiplicationのテスト", () => {
     const five: Money = factory.dollar(5);
     expect(five.times(2)).toEqual(factory.dollar(10));
