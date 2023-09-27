@@ -13,6 +13,6 @@ export class Bank {
   }
 
   rate(from: string, to: string): number {
-    return from === "CHF" && to === "USD" ? 2 : 1;
+    return this.rates.get(new Pair(from, to))!;
   }
 }
