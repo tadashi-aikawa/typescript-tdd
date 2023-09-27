@@ -1,4 +1,5 @@
 import { Expression } from "./Expression";
+import { Sum } from "./Sum";
 
 export class Money implements Expression {
   constructor(protected amount: number, protected _currency: string) {}
@@ -8,7 +9,7 @@ export class Money implements Expression {
   }
 
   plus(addend: Money): Expression {
-    return new Money(addend.amount + this.amount, this.currency);
+    return new Sum(this, addend);
   }
 
   get currency(): string {
