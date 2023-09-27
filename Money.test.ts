@@ -6,6 +6,10 @@ import { Bank } from "./Bank.ts";
 import { Sum } from "./Sum.ts";
 
 describe("Moneyのテスト", () => {
+  test("同一rateのテスト", () => {
+    expect(new Bank().rate("USD", "USD")).toBe(1);
+  });
+
   test("simpleAdditionのテスト", () => {
     const five = factory.dollar(5);
     const sum: Expression = five.plus(five);
