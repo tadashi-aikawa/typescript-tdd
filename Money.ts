@@ -1,10 +1,11 @@
+import { Bank } from "./Bank";
 import { Expression } from "./Expression";
 import { Sum } from "./Sum";
 
 export class Money implements Expression {
   constructor(public amount: number, public _currency: string) {}
 
-  reduce(to: string): Money {
+  reduce(bank: Bank, to: string): Money {
     const rate = this.currency === "CHF" && to === "USD" ? 2 : 1;
     return new Money(this.amount / rate, to);
   }
