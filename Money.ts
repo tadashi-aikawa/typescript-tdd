@@ -2,7 +2,7 @@ import { Expression } from "./Expression";
 import { Sum } from "./Sum";
 
 export class Money implements Expression {
-  constructor(protected amount: number, protected _currency: string) {}
+  constructor(public amount: number, public _currency: string) {}
 
   times(multiplier: number): Money {
     return new Money(this.amount * multiplier, this.currency);
