@@ -5,10 +5,6 @@ import { Sum } from "./Sum.ts";
 
 export class Bank {
   reduce(source: Expression, to: string): Money {
-    if (source instanceof Money) {
-      return (source as Money).reduce(to);
-    }
-    const sum = source as Sum;
-    return sum.reduce(to);
+    return source.reduce(to);
   }
 }
