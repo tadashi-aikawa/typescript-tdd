@@ -1,6 +1,8 @@
 import { describe, expect, test } from "bun:test";
 import { Money } from "./Money.ts";
 import * as factory from "./money-factory.ts";
+import { Expression } from "./Expression.ts";
+import { Bank } from "./Bank.ts";
 
 describe("Moneyのテスト", () => {
   test("simpleAdditionのテスト", () => {
