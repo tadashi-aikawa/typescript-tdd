@@ -5,6 +5,10 @@ export class Money {
     return new Money(this.amount * multiplier, this.currency);
   }
 
+  plus(addend: Money) {
+    return new Money(addend.amount + this.amount, this.currency);
+  }
+
   get currency(): string {
     return this._currency;
   }

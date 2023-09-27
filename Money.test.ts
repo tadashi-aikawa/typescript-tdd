@@ -3,6 +3,11 @@ import { Money } from "./Money.ts";
 import * as factory from "./money-factory.ts";
 
 describe("Moneyのテスト", () => {
+  test("simpleAdditionのテスト", () => {
+    const sum = factory.dollar(5).plus(factory.dollar(5));
+    expect(sum).toEqual(factory.dollar(10));
+  });
+
   test("multiplicationのテスト", () => {
     const five: Money = factory.dollar(5);
     expect(five.times(2)).toEqual(factory.dollar(10));
