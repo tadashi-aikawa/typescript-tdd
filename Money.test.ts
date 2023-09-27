@@ -3,6 +3,7 @@ import { Money } from "./Money.ts";
 import * as factory from "./money-factory.ts";
 import { Expression } from "./Expression.ts";
 import { Bank } from "./Bank.ts";
+import { Sum } from "./Sum.ts";
 
 describe("Moneyのテスト", () => {
   test("simpleAdditionのテスト", () => {
@@ -17,6 +18,7 @@ describe("Moneyのテスト", () => {
     const five = factory.dollar(5);
     const result = five.plus(five);
     const sum = result as Sum;
+
     expect(sum.augend).toEqual(five);
     expect(sum.addend).toEqual(five);
   });
