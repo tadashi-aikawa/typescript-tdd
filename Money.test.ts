@@ -4,8 +4,11 @@ import * as factory from "./money-factory.ts";
 
 describe("Moneyのテスト", () => {
   test("simpleAdditionのテスト", () => {
-    const sum = factory.dollar(5).plus(factory.dollar(5));
-    expect(sum).toEqual(factory.dollar(10));
+    const five = factory.dollar(5);
+    const sum: Expression = five.plus(five);
+    const bank = new Bank();
+    const reduced = bank.reduce(sum, "USD");
+    expect(reduced).toEqual(factory.dollar(10));
   });
 
   test("multiplicationのテスト", () => {
