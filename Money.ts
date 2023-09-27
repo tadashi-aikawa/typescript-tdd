@@ -4,6 +4,10 @@ import { Sum } from "./Sum";
 export class Money implements Expression {
   constructor(public amount: number, public _currency: string) {}
 
+  reduce(to: string): Money {
+    return this;
+  }
+
   times(multiplier: number): Money {
     return new Money(this.amount * multiplier, this.currency);
   }
