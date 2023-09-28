@@ -12,7 +12,7 @@ describe("Moneyのテスト", () => {
 
   test("mixedAdditionのテスト", () => {
     const fiveBucks: Money = factory.dollar(5);
-    const tenFranc: Money = factory.franc(10);
+    const tenFranc: Expression = factory.franc(10);
     const bank = new Bank();
     bank.addRate("CHF", "USD", 2);
     const result = bank.reduce(fiveBucks.plus(tenFranc), "USD");
