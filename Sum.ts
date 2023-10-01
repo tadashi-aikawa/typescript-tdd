@@ -9,6 +9,13 @@ export class Sum implements Expression {
     return new Sum(this, addend);
   }
 
+  times(multiplier: number): Expression {
+    return new Sum(
+      this.augend.times(multiplier),
+      this.addend.times(multiplier)
+    );
+  }
+
   reduce(bank: Bank, to: string): Money {
     const amount =
       this.augend.reduce(bank, to).amount + this.addend.reduce(bank, to).amount;

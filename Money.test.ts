@@ -17,7 +17,7 @@ describe("Moneyのテスト", () => {
     bank.addRate("CHF", "USD", 2);
     const sum = new Sum(fiveBucks, tenFrancs).times(2);
     const result = bank.reduce(sum, "USD");
-    expect(result).toEqual(factory.dollar(10));
+    expect(result).toEqual(factory.dollar(20));
   });
 
   test("sumPlusのテスト", () => {
