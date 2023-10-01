@@ -1,7 +1,7 @@
 export class WasRun {
   constructor(public name: string, public wasRun?: number) {}
   run() {
-    this.testMethod();
+    ((this as any)[this.name] as CallableFunction)();
   }
   testMethod() {
     this.wasRun = 1;
