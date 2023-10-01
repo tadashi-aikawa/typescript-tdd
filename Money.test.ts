@@ -10,6 +10,16 @@ describe("Moneyのテスト", () => {
     expect(new Bank().rate("USD", "USD")).toBe(1);
   });
 
+  test("sumPlusのテスト", () => {
+    const fiveBucks: Expression = factory.dollar(5);
+    const tenFrancs: Expression = factory.franc(10);
+    const bank = new Bank();
+    bank.addRate("CHF", "USD", 2);
+    const sum = new Sum(fiveBucks, tenFrancs).plus(fiveBucks);
+    const result = bank.reduce(sum, "USD");
+    expect(result).toEqual(factory.dollar(15));
+  });
+
   test("mixedAdditionのテスト", () => {
     const fiveBucks: Expression = factory.dollar(5);
     const tenFranc: Expression = factory.franc(10);

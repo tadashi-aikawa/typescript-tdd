@@ -6,7 +6,7 @@ export class Sum implements Expression {
   constructor(public augend: Expression, public addend: Expression) {}
 
   plus(addend: Expression): Expression {
-    throw new Error("Method not implemented.");
+    return new Sum(this, addend);
   }
 
   reduce(bank: Bank, to: string): Money {
