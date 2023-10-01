@@ -1,5 +1,9 @@
 export class TestCase {
   constructor(public name: string) {}
+
+  run() {
+    ((this as any)[this.name] as CallableFunction)();
+  }
 }
 
 export class WasRun extends TestCase {
@@ -7,9 +11,6 @@ export class WasRun extends TestCase {
     super(name);
   }
 
-  run() {
-    ((this as any)[this.name] as CallableFunction)();
-  }
   testMethod() {
     this.wasRun = 1;
   }
