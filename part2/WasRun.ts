@@ -1,4 +1,6 @@
 export class WasRun {
   constructor(public name: string, public wasRun?: number) {}
-  testMethod() {}
+  testMethod() {
+    this.wasRun = 1;
+  }
 }
