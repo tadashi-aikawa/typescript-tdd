@@ -1,4 +1,6 @@
-const test = WasRun("testMethod");
-console.log(test.WasRun); // undefinedが期待
+import { WasRun } from "./WasRun";
+
+const test = new WasRun("testMethod");
+console.log(test.wasRun);
 test.testMethod();
-console.log(test.WasRun); // 1が期待
+console.log(test.wasRun);
