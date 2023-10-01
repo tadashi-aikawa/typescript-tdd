@@ -1,8 +1,10 @@
-export class TestCase {}
+export class TestCase {
+  constructor(public name: string) {}
+}
 
 export class WasRun extends TestCase {
-  constructor(public name: string, public wasRun?: number) {
-    super();
+  constructor(name: string, public wasRun?: number) {
+    super(name);
   }
 
   run() {
